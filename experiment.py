@@ -9,7 +9,7 @@ prompts = {
 }
 
 # 2. Initialize your LLM
-llm = ChatOllama(model="gpt-oss:20b")
+llm = ChatOllama(model="gpt-oss:20b", temperature=0.7)
 
 # 3. Define a simple wrapper for testing
 def test_prompts(prompts_dict, llm):

@@ -1,9 +1,12 @@
 Done
 1. Translator
+4. Understand the json output format -> make a function.
+
 
 
 Backlog
-2. Read
-2. Get dataset -> translate it.
-3.
+2. Read Antropic paper 
+3. Read amazon paper
+5. Get dataset -> translate.
+
 
