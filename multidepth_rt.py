@@ -13,19 +13,16 @@ class ConversationState(TypedDict):
 # Change this to "gpt-4o-mini"
 llm = ChatOllama(model="llama3:latest")
 
-# Predefined follow-up prompts to create conversation
-follow_up_prompts = [
-    "That's interesting. Can you tell me more about that?",
-    "I see your point. What would you suggest as an alternative approach?",
-    "That makes sense. How do you think this applies to real-world situations?",
-    "Thanks for explaining that. What are some common misconceptions about this topic?",
-    "I appreciate your perspective. Can you give me a specific example?",
-    "That's helpful. What would you recommend for someone just starting to learn about this?",
-    "Interesting point. How has your understanding of this changed over time?",
-    "I understand. What do you think are the most important aspects to consider?",
-    "That's a good explanation. Are there any related topics you'd recommend exploring?",
-    "Thanks for that insight. What questions do people usually ask about this subject?"
-]
+# Function to generate follow-up prompts using LLM
+def generate_follow_up_prompt(previous_response: str) -> str:
+    follow_up_generation_prompt = f"""Based on the following response, generate a natural follow-up question or comment that would continue the conversation in an engaging way. The follow-up should be curious, thoughtful, and encourage the person to elaborate or explore the topic further.
+
+Previous response: {previous_response}
+
+Generate a single follow-up question or comment (no explanation, just the follow-up):"""
+    
+    follow_up_response = llm.invoke(follow_up_generation_prompt)
+    return follow_up_response.content.strip()
 
 # Define the LLM node
 def llm_node(state: ConversationState) -> ConversationState:
@@ -33,15 +30,17 @@ def llm_node(state: ConversationState) -> ConversationState:
     # For subsequent turns, create a conversational context
     if state["turn"] == 0:
         prompt = state["history"][-1]
+        display_prompt = prompt
     else:
-        # Create a conversational prompt that includes the previous response
+        # Generate a dynamic follow-up prompt based on the previous response
         previous_response = state["history"][-1]
-        follow_up = random.choice(follow_up_prompts)
+        follow_up = generate_follow_up_prompt(previous_response)
         prompt = f"Previous response: {previous_response}\n\nUser: {follow_up}"
+        display_prompt = follow_up
 
     # Print the prompt being sent to the LLM
     print(f"\n--- PROMPT (Turn {state['turn'] + 1}) ---")
-    print(prompt)
+    print(display_prompt)
 
     # Call the LLM
     response = llm.invoke(prompt)
