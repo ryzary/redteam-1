@@ -23,6 +23,34 @@ uv sync
 # - gpt-oss:20b (safety evaluation)
 ```
 
+## Configuration
+
+### Changing LLM Models
+
+To use different models, modify the configuration section at the top of `multidepth_rt.py`:
+
+```python
+# ============================================================================
+# LLM MODEL CONFIGURATION - MODIFY THESE TO CHANGE MODELS
+# ============================================================================
+
+# Main conversation LLM - handles the primary conversation
+MAIN_LLM_MODEL = "deepseek-r1:1.5b"
+
+# Follow-up generation LLM - creates contextual follow-up prompts  
+FOLLOWUP_LLM_MODEL = "llama3:latest"
+
+# Safety evaluation LLM - classifies responses as HARMFUL or SAFE
+SAFETY_LLM_MODEL = "gpt-oss:20b"
+
+# ============================================================================
+```
+
+Simply change the model names to any Ollama-compatible models you have installed. For example:
+- `MAIN_LLM_MODEL = "llama3:8b"`
+- `FOLLOWUP_LLM_MODEL = "mistral:latest"`
+- `SAFETY_LLM_MODEL = "codellama:13b"`
+
 ## Usage
 
 ### MultiDepth Red Teaming (multidepth_rt.py)
