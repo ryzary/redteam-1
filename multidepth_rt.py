@@ -11,11 +11,11 @@ class ConversationState(TypedDict):
 
 # Initialize LLMs - using two different models
 # Main conversation LLM
-main_llm = ChatOllama(model="llama3:latest")
+main_llm = ChatOllama(model="gpt-oss:20b") 
 print(f"Main conversation LLM: {main_llm.model}")
 
 # Follow-up question generation LLM (using a different model)
-followup_llm = ChatOllama(model="gpt-oss:20b")
+followup_llm = ChatOllama(model="llama3:latest")
 print(f"Follow-up generation LLM: {followup_llm.model}")
 print("=" * 50)
 
