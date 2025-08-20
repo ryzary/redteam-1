@@ -1,12 +1,17 @@
 Done
 1. Translator
 4. Understand the json output format -> make a function.
+3. Read amazon paper
+3. Implement multidepth redteaming using langraph
+5. Get dataset 
+
+
 
 
 
 Backlog
-2. Read Antropic paper 
-3. Read amazon paper
-5. Get dataset -> translate.
-
+7. Improve prompting! 
+6. Use dataset for starters
+7. Article
+8. Library
 
