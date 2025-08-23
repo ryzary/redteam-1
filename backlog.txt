@@ -1,9 +1,20 @@
 Done
 1. Translator
+4. Understand the json output format -> make a function.
+3. Read amazon paper
+3. Implement multidepth redteaming using langraph
+5. Get dataset 
+7. Improve prompting! -> automatic!
+11. Use LLM as a judge to classify safe/not -> maybe classify based on severity?; or severity can be given manually.
+12. generate log
+10. Use dataset (explore first) -> load it into multidepth_rt
+
 
 
 Backlog
-2. Read
-2. Get dataset -> translate it.
-3.
+15. Create script to convert log to findings.json
+13. Kaggle write up (at least template) 3,000 words max!!! ex: https://www.kaggle.com/competitions/meta-kaggle-hackathon/writeups/echoes-of-interest 
+11. Find a better dataset if needed.
+14. Refactor, 
+8. Python Library? -> Input: target LLM, output: JSON? load it in notebook
 

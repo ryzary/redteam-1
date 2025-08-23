@@ -8,4 +8,9 @@ dependencies = [
     "langchain>=0.3.27",
     "langchain-community>=0.3.27",
     "langchain-ollama>=0.3.6",
+    "langgraph>=0.6.6",
+    "datasets>=2.14.0",
+    "transformers>=4.30.0",
+    "huggingface>=0.0.1",
+    "jupyterlab>=4.4.6",
 ]
